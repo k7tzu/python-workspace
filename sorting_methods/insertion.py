@@ -1,9 +1,8 @@
 def insertion_sort(arr):
-    n = len(arr)
-    if n <= 1:
+    if len(arr) <= 1:
         return arr, "Already sorted"
     
-    for i in range(1, n):
+    for i in range(1, len(arr)):
         key = arr[i]
         j = i-1
         while j >= 0 and key < arr[j]:
