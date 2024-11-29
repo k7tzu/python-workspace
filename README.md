@@ -1,2 +1,2 @@
 # Python workspace
-This is just a repo where I store my python stuff from school and home
+This is just a repo in which I store my Python stuff from school and home
