@@ -1,4 +1,4 @@
-from tree import a
+from implementation import *
 
 def prefixe(tree):
     if tree is None:
