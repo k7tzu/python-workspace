@@ -4,6 +4,21 @@ class Tree:
         self.left = None
         self.right = None
 
+    def set_left(self, undertree):
+        self.left = undertree
+
+    def set_right(self, undertree):
+        self.right = undertree
+
+    def get_left(self):
+        return self.left
+    
+    def get_right(self):
+        return self.right
+    
+    def get_data(self):
+        return self.data
+
 a = Tree(9)
 a.left = Tree(8)
 a.right = Tree(7)

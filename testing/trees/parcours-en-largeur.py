@@ -15,7 +15,6 @@ def BFS(arbre):
             result.append(current.data)
             file.put(current.left)
             file.put(current.right)
-
     return result
 
 print(BFS(a))
