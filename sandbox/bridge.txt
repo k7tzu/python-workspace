@@ -1,357 +1,77 @@
-23-NSIJ2ME1 Page : 1/10
-BACCALAURÉAT GÉNÉRAL
-ÉPREUVE D’ENSEIGNEMENT DE SPÉCIALITÉ
-SESSION 2023
-NUMÉRIQUE ET SCIENCES INFORMATIQUES
-ÉPREUVE DU MARDI 21 MARS 2023
-Durée de l’épreuve : 3 heures 30
-L’usage de la calculatrice n’est pas autorisé.
-Dès que ce sujet vous est remis, assurez-vous qu’il est complet.
-Ce sujet comporte 10 pages numérotées de 1/10 à 10/10.
-Le candidat traite les 3 exercices proposés
-23-NSIJ2ME1 Page : 2/10
-EXERCICE 1 (3 points)
-Cet exercice porte sur les protocoles réseau.
-ARPANET, partie ouest représentée sur la figure 1, est le premier réseau à transfert de paquets de données conçu aux États-Unis. En 1971, ce réseau contenait 23 noeuds dont 8 dans la partie ouest :
-Figure 1. ARPANET en 1971, partie ouest.
-SRI : Stanford Research Institute
-AMES : Ames Research (NASA)
-UCSB : Université de Santa Barbara
-UCLA : Université de Los Angeles
-STANFORD : Université, Silicon Valley
-RAND : Research And Development
-SDC : System Development Corporation (Santa Monica)
-UTAH : Université de Salt Lake City
-On schématise ce réseau par un ensemble de routeurs (appelés A, B, C, D, E, F, G et H) chacun associé directement à un réseau du même nom :
-Figure 2. Schématisation du réseau.
-On s’intéresse au protocole RIP, qui minimise le nombre de sauts entre routeurs. Si on l’applique au noeud A de la figure 2, on obtient la table de coûts suivante :
-Noeud A
-Destination
-Coût
-B
-1
-C
-2
-D
-1
-E
-2
-F
-1
-G
-1
-H
-2
-23-NSIJ2ME1 Page : 3/10
-1. Écrire la table des coûts des noeuds B et F.
-2. En appliquant le protocole RIP, donner tous les chemins possibles d’un paquet de données partant du noeud F à destination du noeud H.
-3. L’armée ajoute le noeud Z correspondant sur le réseau. Sa table de coûts est la suivante :
-Noeud Z
-Destination
-Coût
-A
-3
-B
-3
-C
-1
-D
-2
-E
-3
-F
-4
-G
-2
-H
-1
-Tracer le réseau en ajoutant ce noeud Z pour qu’il respecte cette table de routage.
-4. On utilise maintenant le protocole OSPF qui minimise la somme des coûts de la transmission entre deux noeuds.
-Le réseau avec les coûts est illustré par la figure 3 :
-Figure 3. Réseau avec coûts.
-Avec le protocole OSPF, donner en justifiant le chemin pris par un paquet d’origine B à destination du noeud H.
-23-NSIJ2ME1 Page : 4/10
-EXERCICE 2 (3 points)
-Cet exercice porte sur les bases de données et le langage SQL.
-On considère une gestion simplifiée des voyages dans l’espace. La base de données utilisée est constituée de quatre relations nommées Astronaute, Fusee, Equipe et Vol. Voici le contenu des tables Astronaute, Fusee, Equipe et Vol.
-Les clés primaires sont soulignées et les clefs étrangères sont précédées d’un # :
-Astronaute
-id_astronaute
-nom
-prenom
-nationalite
-nb_vols
-1
-'PESQUET'
-'Thomas'
-'français'
-2
-2
-'AMSTRONG'
-'Neil'
-'américain'
-8
-3
-'MAURER'
-'Mathias'
-'allemand'
-1
-4
-'MCARTHUR'
-'Megan'
-'américain'
-5
-Fusee
-id_fusee
-modele
-constructeur
-nb_places
-1
-'Falcon 9'
-'SpaceX'
-6
-2
-'Starship'
-'SpaceX'
-100
-3
-'Soyouz'
-'TsSKB Progress'
-2
-4
-'SLS'
-'Boeing'
-6
-Equipe
-Vol
-id_vol
-#id_astronaute
-id_vol
-#id_fusee
-Date
-1
-1
-1
-1
-'12/09/2022'
-1
-2
-2
-4
-'25/10/2022'
-1
-3
-3
-3
-'18/11/2022'
-2
-1
-4
-2
-'23/12/2022'
-2
-3
-3
-1
-3
-2
-3
-4
-4
-2
-4
-4
-On pourra utiliser les mots clés suivants : COUNT, FROM, INSERT, INTO, JOIN, ON, ORDER BY, SELECT, VALUES, WHERE.
-• Le mot clé COUNT permet de récupérer le nombre d’enregistrements issu de la requête.
-Par exemple, la requête suivante renvoie la valeur 4.
-SELECT COUNT (*) FROM Astronaute;
-23-NSIJ2ME1 Page : 5/10
-• Le mot clé ORDER BY permet de trier les éléments par ordre alphabétique.
-Par exemple, la requête suivante :
-renvoie la table
-1. On s’intéresse ici à la notion de clés primaire et étrangère.
-a. Donner la définition d’une clé primaire.
-b. Dans la table Astronaute, la clé primaire est id_astronaute. Expliquer pourquoi cette requête SQL renvoie une erreur :
-INSERT INTO Astronaute
-VALUES (3, 'HAIGNERE', 'Claudie', 'français', 3);
-c. Le schéma relationnel de la table Astronaute est :
-Astronaute (id_astronaute : INT, nom : TEXT, prenom : TEXT, nationalite : TEXT, nb_vols : INT)
-Écrire le schéma relationnel de la table Fusee en précisant le domaine de chaque attribut.
-2. On s’intéresse ici à la récupération d’informations issues de la base de données.
-a. Écrire le résultat que la requête suivante renvoie :
-SELECT COUNT(*)
-FROM Fusee
-WHERE constructeur = 'SpaceX';
-b. Écrire une requête SQL qui renvoie le modèle et le constructeur des fusées ayant au moins quatre places.
-c. Écrire une requête SQL qui renvoie les noms et prénoms des astronautes dans l’ordre alphabétique du nom.
-SELECT modele FROM Fusee ORDER BY modele;
-'Falcon 9'
-'SLS'
-'Soyouz'
-'Starship'
-23-NSIJ2ME1 Page : 6/10
-3.
-a. Recopier et compléter les requêtes SQL suivantes permettant d’ajouter un cinquième vol avec la fusée 'Soyouz' le 12/04/2023 avec l'équipage composé de PESQUET Thomas et MCARTHUR Megan. On ne s’intéresse pas ici à la mise à jour qui suivra.
-INSERT INTO Vol VALUES(………………………………);
-INSERT INTO Equipe VALUES(………………………);
-INSERT INTO ……………… VALUES(………………………);
-b. Écrire une requête SQL permettant d’obtenir le nom et le prénom des astronautes ayant décollé le '25/10/2022'.
-23-NSIJ2ME1 Page : 7/10
-EXERCICE 3 (6 points)
-Cet exercice porte sur les arbres binaires, les files et la programmation orientée objet.
-Cet exercice comporte deux parties indépendantes.
-PARTIE 1
-Une entreprise stocke les identifiants de ses clients dans un arbre binaire de recherche.
-On rappelle qu’un arbre binaire est composé de noeuds, chacun des noeuds possédant éventuellement un sous-arbre gauche et éventuellement un sous-arbre droit.
-La taille d’un arbre est le nombre de noeuds qu’il contient. Sa hauteur est le nombre de noeuds du plus long chemin qui joint le noeud racine à l’une des feuilles. On convient que la hauteur d’un arbre ne contenant qu’un noeud vaut 1 et celle de l’arbre vide vaut 0.
-Dans cet arbre binaire de recherche, chaque noeud contient une valeur, ici une chaine de caractères, qui est, avec l’ordre lexicographique (celui du dictionnaire) :
-̶ strictement supérieure à toutes les valeurs des noeuds du sous-arbre gauche ;
-̶ strictement inférieure à toutes les valeurs des noeuds du sous-arbre droit.
-Ainsi les valeurs de cet arbre sont toutes distinctes.
-On considère l’arbre binaire de recherche suivant :
-Figure 1. Arbre binaire de recherche.
-1. Donner la taille et la hauteur de l’arbre binaire de recherche de la figure 1.
-2. Recopier cet arbre après l’ajout des identifiants suivants : 'davidbg' et 'papicoeur' dans cet ordre.
-3. On décide de parcourir cet arbre pour obtenir la liste des identifiants dans l’ordre lexicographique.
-Recopier la lettre correspondant au parcours à utiliser parmi les propositions suivantes :
-A - Parcours en largeur d’abord
-B - Parcours en profondeur dans l’ordre préfixe
-C - Parcours en profondeur dans l’ordre infixe
-D - Parcours en profondeur dans l’ordre suffixe (ou postfixe)
-'dfifi'
-'annieji'
-'helene'
-'celine'
-'aalice'
-23-NSIJ2ME1 Page : 8/10
-4. Pour traiter informatiquement les arbres binaires, nous allons utiliser une classe ABR.
-Un arbre binaire de recherche, nommé abr dispose des méthodes suivantes :
-̶ abr.est_vide(): renvoie True si abr est vide et False sinon.
-̶ abr.racine(): renvoie l’élément situé à la racine de abr si abr n’est pas vide et None sinon.
-̶ abr.sg(): renvoie le sous-arbre gauche de abr s’il existe et None sinon.
-̶ abr.sd(): renvoie le sous-arbre droit de abr s’il existe et None sinon.
-On a commencé à écrire une méthode récursive present de la classe ABR, où le paramètre identifiant est une chaine de caractères et qui retourne True si identifiant est dans l’arbre et False sinon.
-1
-2
-3
-4
-5
-6
-7
-8
-9
-def present(self, identifiant):
-if self.est_vide():
-return False
-elif self.racine() == identifiant:
-return ...
-elif self.racine() < identifiant:
-return self.sd(). ...
-else:
-return ...
-Recopier et compléter les lignes 5, 7 et 9 de cette méthode.
-PARTIE 2
-On considère une structure de données file que l’on représentera par des éléments en ligne, l’élément à droite étant la tête de la file et l’élément à gauche étant la queue de la file.
-On appellera f1 la file suivante :
-On suppose que les quatre fonctions suivantes ont été programmées préalablement en langage Python :
-̶ creer_file() : renvoie une file vide ;
-̶ est_vide(f) : renvoie True si la file f est vide et False sinon ;
-̶ enfiler(f, e) : ajoute l'élément e à la queue de la file f ;
-̶ defiler(f) : renvoie l’élément situé à la tête de la file f et le retire de la file.
-'bac'
-'nsi'
-'2023'
-'file'
-23-NSIJ2ME1 Page : 9/10
-5. Les trois questions suivantes sont indépendantes.
-a. Donner le résultat renvoyé après l’appel de la fonction est_vide(f1).
-b. Représenter la file f1 après l’exécution du code defiler(f1).
-c. Représenter la file f2 après l’exécution du code suivant :
-1
-2
-3
-4
-f2 = creer_file()
-liste = ['castor', 'python', 'poule']
-for elt in liste:
-enfiler(f2, elt)
-6. Recopier et compléter les lignes 4, 6 et 7 de la fonction longueur qui prend en paramètre une file f et qui renvoie le nombre d’éléments qu’elle contient. Après un appel à la fonction, la file f doit retrouver son état d’origine.
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+import re
+
+# Création et gestion des files
+def creer_file():
+    return []
+
+def est_vide(f):
+    return len(f) == 0
+
+def enfiler(f, elt):
+    f.append(elt)
+
+def defiler(f):
+    if not est_vide(f):
+        return f.pop(0)
+    return None  # Renvoie None si la file est vide
+
+# 5.a Vérification si une file est vide
+def test_est_vide():
+    f1 = ["bac", "nsi", "2023", "file"]
+    print("5.a - est_vide(f1) :", est_vide(f1))  # False
+
+# 5.b Évolution de la file après un défilement
+def test_defiler():
+    f1 = ["bac", "nsi", "2023", "file"]
+    defiler(f1)
+    print("5.b - f1 après defiler :", f1)  # ['nsi', '2023', 'file']
+
+# 5.c Ajout d'éléments dans une nouvelle file
+def test_enfiler():
+    f2 = creer_file()
+    for elt in ["castor", "python", "poule"]:
+        enfiler(f2, elt)
+    print("5.c - f2 après ajout :", f2)  # ['castor', 'python', 'poule']
+
+# 6. Fonction longueur
 def longueur(f):
-resultat = 0
-g = creer_file() while ... :
-elt = defiler(f)
-resultat = ... enfiler(... , ...)
-while not(est_vide(g)):
-enfiler(f, defiler(g))
-return resultat
-7. Un site impose à ses clients des critères sur leur mot de passe. Pour cela il utilise la fonction est_valide qui prend en paramètre une chaine de caractères mot et qui retourne True si mot correspond aux critères et False sinon.
-1
-2
-3
-4
-5
-6
-7
+    resultat = 0
+    g = creer_file()
+    
+    while not est_vide(f):
+        elt = defiler(f)
+        resultat += 1
+        enfiler(g, elt)  # Sauvegarde
+    
+    while not est_vide(g):
+        enfiler(f, defiler(g))  # Restauration
+    
+    return resultat
+
+def test_longueur():
+    f = ["apple", "banana", "cherry"]
+    print("6 - Longueur de f :", longueur(f))  # 3
+
+# 7. Fonction est_valide
 def est_valide(mot):
-if len(mot) < 8: return False for c in mot:
-if c in ['!', '#', '@', ';', ':']: return True
-return False
-Parmi les mots de passe suivants, recopier celui qui sera validé par cette fonction.
-A - 'best@'
-B - 'paptap23'
-C - '2!@59fgds'
-23-NSIJ2ME1 Page : 10/10
-8. Le tableau suivant montre, sur deux exemples, l’évolution d’une file f3 après l’exécution de l’instruction ajouter_mot(f3, 'super') :
-état initial de f3
-état de f3 après l’instruction ajouter_mot(f3, 'super')
-Exemple 1
-'bac'
-'nsi'
-'2023'
-'super'
-'bac'
-'nsi'
-Exemple 2
-'test'
-'info'
-'super'
-'test'
-'info'
-Écrire le code de cette fonction ajouter_mot qui prend en paramètres une file f (qui a au plus 3 éléments) et une chaine de caractères valide mdp. Cette fonction met à jour la file de stockage f des mots de passe en y ajoutant mdp et en défilant, si nécessaire, pour avoir au maximum trois éléments dans cette file.
-On pourra utiliser la fonction longueur de la question 6.
-9. Pour intensifier sa sécurité, le site stocke les trois derniers mots de passe dans une file et interdit au client lorsqu’il change son mot de passe d’utiliser l’un des mots de passe stockés dans cette file.
-Recopier et compléter les lignes 7 et 8 de la fonction mot_file :
-- qui prend en paramètres une file f et mdp de type chaine de caractères ;
-- qui renvoie True si le mot de passe est un élément de la file f et False sinon.
-Après un appel à cette fonction, la file f doit retrouver son état d’origine.
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-def mot_file(f, mdp): g = creer_file()
-present = False
-while not(est_vide(f)): elt = defiler(f)
-enfiler(g, elt)
-if ...:
-present = ...
-while not(est_vide(g)): enfiler(f, defiler(g))
-return present
-10. Écrire une fonction modification qui prend en paramètres une file f et une chaine de caractères nv_mdp. Si le mot de passe nv_mdp répond bien aux deux exigences des questions 7 et 9, alors elle modifie la file des mots de passe stockés et renvoie True. Dans le cas contraire, elle renvoie False.
-On pourra utiliser les fonctions mot_file, est_valide et ajouter_mot.
+    if len(mot) < 8:  
+        return False  
+    if not any(c.isupper() for c in mot):  
+        return False  
+    if not any(c.isdigit() for c in mot):  
+        return False  
+    if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", mot):  
+        return False  
+    return True  
+
+def test_est_valide():
+    mots = ["Test1234", "Password!", "Abc1@", "Secure@123"]
+    for mot in mots:
+        print(f"7 - {mot} est valide ? {est_valide(mot)}")
+
+# Exécution des tests
+test_est_vide()
+test_defiler()
+test_enfiler()
+test_longueur()
+test_est_valide()
