@@ -74,3 +74,13 @@ def retourner(P, j):
 
 retourner(P, 3)
 print(P)
+
+def tri_crepes(P):
+    n = hauteur_pile(P)  # Get the height of the stack
+
+    for i in range(n, 1, -1):  # We sort from the bottom to the top
+        max_pos = max_pile(P, i)  # Step 1: Find the max position in the first `i` elements
+
+        if max_pos != i:  # If the max is not already in the correct place
+            retourner(P, max_pos)  # Step 2: Bring the max element to the top
+            retourner(P, i)  # Step 3: Move it to its correct position
