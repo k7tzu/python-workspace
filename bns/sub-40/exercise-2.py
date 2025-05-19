@@ -24,7 +24,7 @@ def moyenne(nom, resultats):
     """
     if nom in resultats:
         notes = resultats[nom]
-        if notes is None:
+        if notes == {}:
             return 0
         total_points = 0
         total_coefficients = 0
