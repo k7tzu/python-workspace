@@ -1,14 +1,26 @@
 def recherche_indices_classement(elt, tab):
-    r1 = []
-    r2 = []
-    r3 = []
-    for value in tab:
-        if value < elt:
-            r1.append(value)
-        elif value == elt:
-            r2.append(value)
+    """
+    >>> recherche_indices_classement(3, [1, 3, 4, 2, 4, 6, 3, 0])
+    ([0, 3, 7], [1, 6], [2, 4, 5])
+    >>> recherche_indices_classement(3, [1, 4, 2, 4, 6, 0])
+    ([0, 2, 5], [], [1, 3, 4])
+    >>> recherche_indices_classement(3, [1, 1, 1, 1])
+    ([0, 1, 2, 3], [], [])
+    >>> recherche_indices_classement(3, [])
+    ([], [], [])
+    """
+    a1 = []
+    a2 = []
+    a3 = []
+    for i in range(len(tab)):
+        if tab[i] < elt:
+            a1.append(i)
+        elif tab[i] == elt:
+            a2.append(i)
         else:
-            r3.append(value)
-    return (r1, r2, r3)
+            a3.append(i)
+    return (a1, a2, a3)
 
-print(recherche_indices_classement(3, [1, 3, 4, 2, 4, 6, 3, 0]))
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
