@@ -1,0 +1,21 @@
+def correspond(mot, mot_a_trous):
+    """
+    >>> correspond('INFORMATIQUE', 'INFO*MA*IQUE')
+    True
+    >>> correspond('AUTOMATIQUE', 'INFO*MA*IQUE')
+    False
+    >>> correspond('STOP', 'S*')
+    False
+    >>> correspond('AUTO', '*UT*')
+    True
+    """
+    if len(mot) != len(mot_a_trous):
+        return False
+    for i in range(len(mot_a_trous)):
+        if mot_a_trous[i] != mot[i] and mot_a_trous[i] != '*':
+            return False
+    return True
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
